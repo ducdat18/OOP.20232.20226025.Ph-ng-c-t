@@ -1,0 +1,13 @@
+In Java, when you pass objects as parameters to methods, you're actually passing references to the objects, not the objects themselves. This means that when you modify the state of an object within a method, the changes are reflected in the original object outside of the method.
+
+swap(Object o1, Object o2):
+In this method, you're swapping the references o1 and o2, but you're not modifying the actual objects they reference.
+When you pass jungleDVD and cinderellaDVD to this method, you're passing references to the actual DigitalVideoDisc objects.
+Swapping the references o1 and o2 doesn't affect the original references jungleDVD and cinderellaDVD outside of the method.
+Therefore, after calling swap, the titles of jungleDVD and cinderellaDVD remain unchanged.
+
+changeTitle(DigitalVideoDisc dvd, String title):
+In this method, you're modifying the state of the DigitalVideoDisc object referenced by dvd by changing its title.
+When you pass jungleDVD to this method, you're passing a reference to the actual DigitalVideoDisc object.
+Inside the method, you're modifying the title of the DigitalVideoDisc object using the reference dvd.
+Therefore, after calling changeTitle, the title of jungleDVD is changed.
