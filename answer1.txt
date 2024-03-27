@@ -1,0 +1,1 @@
+In this case, since aiming to provide flexibility for adding one or multiple DVDs to the cart, using varargs seems to be a more suitable option. It allows the caller to pass any number of DigitalVideoDisc objects without the need to create an array explicitly.
