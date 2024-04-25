@@ -1,0 +1,47 @@
+14.
+- Which classes are aggregates of other classes?
+Checking all constructors of whole classes if they initialize for their parts?
+- Write constructors for parent and child classes. Remove redundant setter methods if any
+Answer:
+- Cart is aggregate of Media. Store is aggregate of Media. CompactDisc is aggregate of Track
+- Already in the code
+
+15.
+When overriding the equals() method of the Object class, you will have to cast the Object
+parameter obj to the type of Object that you are dealing with. For example, in the Media class,
+you must cast the Object obj to a Media, and then check the equality of the two objects’ attributes
+as the above requirements (i.e. title for Media; title and length for Track). If the
+passing object is not an instance of Media, what happens?
+
+Answer: If the passed object is not an instance of Media, the equals() method returns false.
+This indicates that the two objects are not equal,
+as they belong to different classes or incompatible types.
+
+16.
+- What are the advantages of Polymorphism?
++ Flexibility: Polymorphism allows objects of different classes to be treated as objects of a common superclass. This provides flexibility in designing and implementing code, as you can work with objects at a higher level of abstraction.
++ Code Reusability: Polymorphism enables you to reuse code by allowing methods to operate on objects of different classes through a common interface or superclass.
++ Extensibility: Polymorphism supports extensibility by allowing you to add new classes that can be used interchangeably with existing classes without modifying the existing code.
++ Encapsulation: Polymorphism promotes encapsulation by hiding the implementation details of objects behind their interfaces or superclasses, allowing for better separation of concerns.
+
+- How is Inheritance useful to achieve Polymorphism in Java?
+Inheritance is a mechanism in Java by which one class acquires the properties and behaviors of another class. In the context of achieving polymorphism, inheritance is useful because it allows subclasses to override methods defined in their superclass. This enables polymorphic behavior, where different subclasses can provide their own implementation of methods inherited from a common superclass.
+
+- What are the differences between Polymorphism and Inheritance in Java?
++ Conceptual Difference: Inheritance is the mechanism of basing a new class upon an existing class, whereas polymorphism is the ability of objects belonging to different data types to respond to method calls of the same name.
++ Usage: Inheritance is used for code reuse and to establish an "is-a" relationship between classes, whereas polymorphism is used to achieve dynamic behavior and flexibility in method calls.
++ Syntax: In Java, inheritance is implemented using the extends keyword, while polymorphism is typically achieved through method overriding and method overloading.
+
+17.
+- What class should implement the Comparable interface?    
+    Media class should implement the Comparable interface
+
+- In those classes, how should you implement the compareTo()method be to reflect the ordering that we want?  
+    The answer can be found in `Media.java` file.
+
+- Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this Comparable interface approach?  
+    No we cannot. The Comparable interface assumes that there is only one natural ordering for the objects being compared.
+
+- Suppose the DVDs has a different ordering rule from the other media types, that is by title, then decreasing length, then cost. How would you modify your code to allow this?  
+    We can override the compareTo method in Disc class to reflect the new ordering rule.  
+    The modified code can be found in `Disc.java` file
