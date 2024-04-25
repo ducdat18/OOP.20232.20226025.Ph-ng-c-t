@@ -37,7 +37,14 @@ Inheritance is a mechanism in Java by which one class acquires the properties an
     Media class should implement the Comparable interface
 
 - In those classes, how should you implement the compareTo()method be to reflect the ordering that we want?  
-    The answer can be found in `Media.java` file.
+    public int compareTo(Media other) {
+        int titleComparison = this.getTitle().compareTo(other.getTitle());
+        if (titleComparison != 0) {
+            return titleComparison;
+        } else {
+            return Double.compare(this.getCost(), other.getCost());
+        }
+    }
 
 - Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this Comparable interface approach?  
     No we cannot. The Comparable interface assumes that there is only one natural ordering for the objects being compared.
