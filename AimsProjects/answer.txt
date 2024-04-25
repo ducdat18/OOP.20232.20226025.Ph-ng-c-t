@@ -51,4 +51,25 @@ Inheritance is a mechanism in Java by which one class acquires the properties an
 
 - Suppose the DVDs has a different ordering rule from the other media types, that is by title, then decreasing length, then cost. How would you modify your code to allow this?  
     We can override the compareTo method in Disc class to reflect the new ordering rule.  
-    The modified code can be found in `Disc.java` file
+    public int compareTo(Media other) {
+        if (other instanceof Disc) {
+            Disc otherDVD = (Disc) other;
+            int titleComparison = this.getTitle().compareTo(otherDVD.getTitle());
+            if (titleComparison != 0) {
+                // Compare by title
+                return titleComparison;
+            } else {
+                // Compare by decreasing length
+                int lengthComparison = Integer.compare(otherDVD.getLength(), this.getLength());
+                if (lengthComparison != 0) {
+                    return lengthComparison;
+                } else {
+                    // Compare by cost
+                    return Double.compare(this.getCost(), otherDVD.getCost());
+                }
+            }
+        } else {
+            // If the media object is not a Disc, use the default method of the Media class
+            return super.compareTo(other);
+        }
+    }
